@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css//main.css" />
+    <script src="./main.js" defer></script>
+    <title>countries | challenge 3</title>
+  </head>
+  <body>
+    <!-- <img id="mockup" src="./design/mobile-design-home-light.jpg" alt="" /> -->
+    <!-- <img id="mockup" src="./design/desktop-design-home-light.jpg" alt="" /> -->
+    <header>
+      <nav class="container">
+        <!-- <div class="container"> -->
+        <h1 class="nav-logo">Where in the world?</h1>
+        <h2 class="them-switch">Dark Mode</h2>
+        <!-- </div> -->
+      </nav>
+    </header>
+    <main>
+      <section class="searchAndFilters">
+        <div class="container">
+          <div class="input-country">
+            <input placeholder="search for a country.." type="text" />
+          </div>
+          <div class="selectRegion">
+            <!-- <select name="region" id="region">
+              <option id="first" selected hidden disabled>Select region</option>
+              <option id="first" value="Africa">Africa</option>
+              <option value="Asia">Asia</option>
+              <option value="Europe">Europe</option>
+              <option value="Oceania">Oceania</option>
+            </select> -->
+
+            <div class="select-container">
+              <div class="select-group">
+                <button id="button" class="button">
+                  <span id="select-label">Select region</span>
+                  <div id="arrow" class="arrow"></div>
+                </button>
+                <div class="dropdown hidden" id="dropdown">
+                  <input
+                    type="radio"
+                    id="select-Africa"
+                    name="region"
+                    value="africa"
+                    class="option"
+                  />
+                  <label for="select-Africa" class="select-item">Africa</label>
+
+                  <input
+                    type="radio"
+                    id="select-Asia"
+                    name="region"
+                    value="asia"
+                    class="option"
+                  />
+                  <label for="select-Asia" class="select-item">Asia</label>
+
+                  <input
+                    type="radio"
+                    id="select-Europe"
+                    name="region"
+                    value="europe"
+                    class="option"
+                  />
+                  <label for="select-Europe" class="select-item">Europe</label>
+                  <input
+                    type="radio"
+                    id="select-Oceania"
+                    name="region"
+                    value="oceania"
+                    class="option"
+                  />
+                  <label for="select-Oceania" class="select-item"
+                    >Oceania</label
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- the end of form -->
+          </div>
+        </div>
+      </section>
+      <section id="country-card-section">
+        <div id="country-container" class="container grid-container">
+          <!-- <div data-countryId="23121" class="card">
+            <div class="image">
+              <img src="https://flagcdn.com/w320/me.png" alt="flag" />
+            </div>
+            <div class="card-content">
+              <h3>Germany</h3>
+              <p><span class="country-data">Population: </span>81,770,900</p>
+              <p><span class="country-data">Region: </span>Europe</p>
+              <p><span class="country-data">Capital: </span>Berlin</p>
+            </div>
+          </div> -->
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

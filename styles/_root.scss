@@ -1,0 +1,53 @@
+/* breakpoints */
+$Mobile-width: 375px;
+$Desktop-width: 1440px;
+/* font size */
+$Body-Homepage-Items: 14px;
+$Body-Detail-Page: 16px;
+/* font family */
+$Font-family: "Nunito Sans", sans-serif;
+/* font weights */
+$font-family-Weight-300: 300;
+$font-family-Weight-600: 600;
+$font-family-Weight-800: 800;
+/* colors */
+// dark mode
+$Dark-Mode-Very-Dark-Blue: hsl(207, 26%, 17%); // dark mode background
+$Dark-Mode-Dark-Blue: hsl(209, 23%, 22%); //dark mode elements,dark mode input
+$White: hsl(0, 0%, 100%); //Dark Mode Text
+// white mode
+$Light-Mode-Very-Light-Gray: hsl(0, 0%, 98%); //Light Mode Background
+$White: hsl(0, 0%, 100%); //Light Mode Elements
+$Light-Mode-Very-Dark-Blue: hsl(200, 15%, 8%); // light mode text
+$Light-Mode-Dark-Gray: hsl(0, 0%, 52%); // Light mode input
+:root {
+  --background-color: #{$Light-Mode-Very-Light-Gray};
+  --element-color: #{$White};
+  --text-color: #{$Light-Mode-Very-Dark-Blue};
+  --input-mode-color: #{$Light-Mode-Dark-Gray};
+}
+
+body {
+  font-family: $Font-family;
+  font-size: $Body-Homepage-Items;
+}
+
+h1 {
+  font-size: 1rem;
+  font-weight: $font-family-Weight-800;
+}
+
+h2 {
+  // font-size: 2rem;
+  font-weight: $font-family-Weight-600;
+}
+
+h3 {
+  // font-size: 2rem;
+  font-weight: $font-family-Weight-300;
+}
+
+/* 
+## Icons
+- [Font Awesome](https://fontawesome.com)
+*/
