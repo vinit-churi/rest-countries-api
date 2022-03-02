@@ -35,9 +35,13 @@
     <main>
       <section class="searchAndFilters">
         <div class="container">
-          <div class="input-country">
-            <input placeholder="search for a country.." type="text" />
-          </div>
+          <form class="input-country">
+            <input
+              id="search-country"
+              placeholder="search for a country.."
+              type="text"
+            />
+          </form>
           <div class="selectRegion">
             <!-- <select name="region" id="region">
               <option id="first" selected hidden disabled>Select region</option>
@@ -58,7 +62,7 @@
                     type="radio"
                     id="select-Africa"
                     name="region"
-                    value="africa"
+                    value="Africa"
                     class="option"
                   />
                   <label for="select-Africa" class="select-item">Africa</label>
@@ -67,7 +71,7 @@
                     type="radio"
                     id="select-Asia"
                     name="region"
-                    value="asia"
+                    value="Asia"
                     class="option"
                   />
                   <label for="select-Asia" class="select-item">Asia</label>
@@ -76,7 +80,7 @@
                     type="radio"
                     id="select-Europe"
                     name="region"
-                    value="europe"
+                    value="Europe"
                     class="option"
                   />
                   <label for="select-Europe" class="select-item">Europe</label>
@@ -84,11 +88,21 @@
                     type="radio"
                     id="select-Oceania"
                     name="region"
-                    value="oceania"
+                    value="Oceania"
                     class="option"
                   />
                   <label for="select-Oceania" class="select-item"
                     >Oceania</label
+                  >
+                  <input
+                    type="radio"
+                    id="select-Americas"
+                    name="region"
+                    value="Americas"
+                    class="option"
+                  />
+                  <label for="select-Americas" class="select-item"
+                    >Americas</label
                   >
                 </div>
               </div>
@@ -110,6 +124,9 @@
               <p><span class="country-data">Capital: </span>Berlin</p>
             </div>
           </div> -->
+        </div>
+        <div class="load-more">
+          <button class="custom-btn btn-16 hide-button">Load More</button>
         </div>
       </section>
     </main>
