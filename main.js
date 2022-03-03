@@ -140,7 +140,17 @@ async function displayCountriesCard(data) {
     console.log(capital);
     let cap = capital[0];
     htmlContent += `
-          <div data-countryId="23121" class="card">
+          <div data-countryId="23121" class="card" data-country-name="${countryName}" data-population="${population}" data-image="${imgSrc}" data-country-name="${countryName}" data-region="${
+      cardSet[i]?.continents[0]
+    }" data-languages=${JSON.stringify(
+      cardSet[i]?.languages
+    )} data-capital="${cap}" data-currencies=${JSON.stringify(
+      cardSet[i]?.currencies
+    )} data-subregion="${
+      cardSet[i]?.subregion
+    }" data-capital="${cap}" data-borders=${JSON.stringify(
+      cardSet[i]?.borders
+    )}>
               <div class="image">
                 <img
                   src="${imgSrc}"
@@ -151,7 +161,9 @@ async function displayCountriesCard(data) {
               <div class="card-content">
                 <h3>${countryName}</h3>
                 <p><span class="country-data">Population:</span>${population}</p>
-                <p><span class="country-data">Region:</span>${data[i]?.continents[0]}</p>
+                <p><span class="country-data">Region:</span>${
+                  data[i]?.continents[0]
+                }</p>
                 <p><span class="country-data">Capital:</span>${cap}</p>
               </div>
             </div>
@@ -180,7 +192,17 @@ loadMoreBtn.addEventListener("click", () => {
       console.log(capital);
       let cap = capital[0];
       adjacentHtmlContent += `
-          <div data-countryId="23121" class="card">
+          <div data-countryId="23121" class="card" data-country-name="${countryName}" data-population="${population}" data-image="${imgSrc}" data-country-name="${countryName}" data-region="${
+        cardSet[i]?.continents[0]
+      }" data-languages=${JSON.stringify(
+        cardSet[i]?.languages
+      )} data-capital="${cap}" data-currencies=${JSON.stringify(
+        cardSet[i]?.currencies
+      )} data-subregion="${
+        cardSet[i]?.subregion
+      }" data-capital="${cap}" data-borders=${JSON.stringify(
+        cardSet[i]?.borders
+      )}>
               <div class="image">
                 <img
                   src="${imgSrc}"
@@ -191,7 +213,9 @@ loadMoreBtn.addEventListener("click", () => {
               <div class="card-content">
                 <h3>${countryName}</h3>
                 <p><span class="country-data">Population:</span>${population}</p>
-                <p><span class="country-data">Region:</span>${cardSet[i]?.continents[0]}</p>
+                <p><span class="country-data">Region:</span>${
+                  cardSet[i]?.continents[0]
+                }</p>
                 <p><span class="country-data">Capital:</span>${cap}</p>
               </div>
             </div>
