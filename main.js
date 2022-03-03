@@ -160,11 +160,11 @@ async function displayCountriesCard(data) {
               </div>
               <div class="card-content">
                 <h3>${countryName}</h3>
-                <p><span class="country-data">Population:</span>${population}</p>
-                <p><span class="country-data">Region:</span>${
+                <p><span class="country-data">Population:</span>&nbsp;&#160;${population}</p>
+                <p><span class="country-data">Region:</span>&nbsp;&#160;${
                   data[i]?.continents[0]
                 }</p>
-                <p><span class="country-data">Capital:</span>${cap}</p>
+                <p><span class="country-data">Capital:</span>&nbsp;&#160;${cap}</p>
               </div>
             </div>
       `;
@@ -212,11 +212,11 @@ loadMoreBtn.addEventListener("click", () => {
               </div>
               <div class="card-content">
                 <h3>${countryName}</h3>
-                <p><span class="country-data">Population:</span>${population}</p>
-                <p><span class="country-data">Region:</span>${
+                <p><span class="country-data">Population:</span>&nbsp;&#160; ${population}</p>
+                <p><span class="country-data">Region:</span>&nbsp;&#160;${
                   cardSet[i]?.continents[0]
                 }</p>
-                <p><span class="country-data">Capital:</span>${cap}</p>
+                <p><span class="country-data">Capital:</span>&nbsp;&#160;${cap}</p>
               </div>
             </div>
       `;
