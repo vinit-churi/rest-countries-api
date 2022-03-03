@@ -94,6 +94,12 @@ async function getSingleCountry(country) {
     });
     console.log(data);
     console.log("status", status);
+    if (status === 404) {
+      tata.error("API ERROR", "country not found", {
+        position: "tr",
+        animate: "slide",
+      });
+    }
     displayCountriesCard(data);
     return data;
   } catch (error) {
