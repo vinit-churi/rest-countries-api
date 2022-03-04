@@ -46,6 +46,63 @@ countryContainer.addEventListener(
       div.removeChild(div.firstChild);
     }
     */
+    if (
+      target.dataset.capital != "undefined" &&
+      target.dataset.capital != null
+    ) {
+      detailsCapital.innerHTML = target.dataset.capital;
+    }
+    if (
+      target.dataset.countryName != "undefined" &&
+      target.dataset.countryName != null
+    ) {
+      detailsName.innerHTML = target.dataset.countryName;
+      detailsDomain.innerHTML = `.${target.dataset.countryName.slice(0, 2)}`;
+    }
+    if (
+      target.dataset.currencies != "undefined" &&
+      target.dataset.currencies != null
+    ) {
+      // detailsCurrency.innerHTML = JSON.parse(
+      //   target.dataset.currencies
+      // ).toString();
+      const object = JSON.parse(target.dataset.currencies);
+      let text = "";
+      for (const property in object) {
+        text += `${object[property].name}, `;
+        console.log(property);
+      }
+      console.log(text);
+      detailsCurrency.innerHTML = text;
+    }
+    if (
+      target.dataset.population != "undefined" &&
+      target.dataset.population != null
+    ) {
+      detailsPopulation.innerHTML = target.dataset.population;
+    }
+    if (target.dataset.region != "undefined" && target.dataset.region != null) {
+      detailsRegion.innerHTML = target.dataset.region;
+    }
+    if (
+      target.dataset.subregion != "undefined" &&
+      target.dataset.subregion != null
+    ) {
+      detailsSubRegion.innerHTML = target.dataset.subregion;
+    }
+    if (
+      target.dataset.languages != "undefined" &&
+      target.dataset.languages != null
+    ) {
+      const object = JSON.parse(target.dataset.languages);
+      let text = "";
+      for (const property in object) {
+        text += `${object[property]} `;
+        console.log(property);
+      }
+      console.log(text);
+      detailsLanguage.innerHTML = text;
+    }
 
     if (target.dataset.borders != "undefined") {
       const para = document.createElement("p");
@@ -265,13 +322,13 @@ loadMoreBtn.addEventListener("click", () => {
         cardSet[i]?.continents[0]
       }" data-languages=${JSON.stringify(
         cardSet[i]?.languages
-      )} data-capital="${cap}" data-currencies=${JSON.stringify(
+      )} data-capital=${cap} data-currencies='${JSON.stringify(
         cardSet[i]?.currencies
-      )} data-subregion="${
+      )}' data-subregion=${
         cardSet[i]?.subregion
-      }" data-capital="${cap}" data-borders=${JSON.stringify(
+      } data-capital="${cap}" data-borders='${JSON.stringify(
         cardSet[i]?.borders
-      )}>
+      )}'>
               <div class="image">
                 <img
                   src="${imgSrc}"
@@ -324,7 +381,17 @@ loadMoreBtn.addEventListener("click", () => {
         // console.log(capital);
         let cap = capital[0];
         adjacentHtmlContent += `
-          <div data-countryId="23121" class="card">
+          <div class="card" data-country-name="${countryName}" data-population="${population}" data-image="${imgSrc}" data-country-name="${countryName}" data-region="${
+          cardSet[i]?.continents[0]
+        }" data-languages=${JSON.stringify(
+          cardSet[i]?.languages
+        )} data-capital=${cap} data-currencies='${JSON.stringify(
+          cardSet[i]?.currencies
+        )}' data-subregion=${
+          cardSet[i]?.subregion
+        } data-capital="${cap}" data-borders='${JSON.stringify(
+          cardSet[i]?.borders
+        )}'>
               <div class="image">
                 <img
                   src="${imgSrc}"
@@ -335,7 +402,9 @@ loadMoreBtn.addEventListener("click", () => {
               <div class="card-content">
                 <h3>${countryName}</h3>
                 <p><span class="country-data">Population:</span>${population}</p>
-                <p><span class="country-data">Region:</span>${cardSet[i]?.continents[0]}</p>
+                <p><span class="country-data">Region:</span>${
+                  cardSet[i]?.continents[0]
+                }</p>
                 <p><span class="country-data">Capital:</span>${cap}</p>
               </div>
             </div>
