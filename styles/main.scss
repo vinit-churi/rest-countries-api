@@ -91,6 +91,9 @@ main {
 
         .select-group {
           position: relative;
+          .button {
+            margin-left: 0;
+          }
         }
 
         .button {
@@ -210,10 +213,14 @@ main {
       margin-right: auto;
       background-color: var(--element-color);
       box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      font-weight: 600;
 
       .image {
         width: 100%;
+        pointer-events: none;
+
         img {
+          pointer-events: none;
           width: 100%;
           min-height: auto;
           height: auto;
@@ -227,6 +234,7 @@ main {
       }
       .card-content {
         padding: 1rem 1rem;
+        pointer-events: none;
         h3 {
           font-weight: 700;
           font-size: 1.2rem;
@@ -307,4 +315,66 @@ button {
 
 .hide-button {
   display: none;
+}
+
+.details-page {
+  background-color: var(--background-color);
+  // background-color: rebeccapurple;
+  position: absolute;
+  // position: fixed;
+  top: 85px;
+  height: max-content;
+  width: 100vw;
+  z-index: 20;
+
+  .container {
+    .details-page-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-weight: 600;
+
+      .details-flag-image {
+        width: 100%;
+        img {
+          width: 100%;
+        }
+      }
+
+      .border-countries {
+        padding-bottom: 30px;
+        span {
+          padding: 0.5rem 0.9rem;
+          background-color: var(--element-color);
+          margin: 20px 10px 0px 0px;
+          font-weight: 600;
+          box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+            7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+            4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+    #back-button {
+      display: flex;
+      gap: 10px;
+      padding: 0.5rem 0.9rem;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      background-color: var(--element-color);
+      margin-left: 0;
+      margin-top: 30px;
+      margin-bottom: 50px;
+    }
+  }
+}
+
+.hide-details {
+  display: none;
+}
+
+.hide-main {
+  /* // ANCHOR  SET THIS VALUE DYNAMICALLY AFTER SETTING THE UNHIDDING THE DETAILS PAGE*/
+  height: 0;
+  overflow-y: hidden;
 }

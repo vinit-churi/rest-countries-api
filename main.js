@@ -5,12 +5,72 @@ const selectLabel = document.querySelector("#select-label");
 const countryContainer = document.querySelector("#country-container");
 const inputCountry = document.querySelector(".input-country");
 const searchCountry = document.querySelector("#search-country");
-const loadMoreBtn = document.querySelector(".custom-btn");
+const loadMoreBtn = document.querySelector("#load-more");
+const detailsPage = document.querySelector(".details-page");
+const BackButton = document.querySelector("#back-button");
+const Main = document.querySelector("#main");
+const borderCountries = document.querySelector(".border-countries");
+const detailsImage = document.querySelector("#detail-image");
+const detailsName = document.querySelector("#details-name");
+const detailsPopulation = document.querySelector("#details-population");
+const detailsRegion = document.querySelector("#details-region");
+const detailsSubRegion = document.querySelector("#details-sub-region");
+const detailsCapital = document.querySelector("#details-capital");
+const detailsDomain = document.querySelector("#details-domain");
+const detailsCurrency = document.querySelector("#details-currency");
+const detailsLanguage = document.querySelector("#details-language");
+
+// const card = document.querySelectorAll(".card");
 let cardSet;
 let clickCount = 1;
 
+BackButton.addEventListener("click", () => {
+  detailsPage.classList.add("hide-details");
+  Main.classList.remove("hide-main");
+});
+
+countryContainer.addEventListener(
+  "click",
+  (event) => {
+    let target = event.target;
+    console.log(target);
+    console.log(target.dataset);
+    console.log(JSON.parse(target.dataset.currencies));
+    console.log(JSON.parse(target.dataset.languages));
+    if (target.dataset.borders != "undefined") {
+      const para = document.createElement("p");
+      para.innerHTML = "<p><b>Border countries:</b></p>";
+      borderCountries.append(para);
+      const arr = JSON.parse(target.dataset.borders);
+      console.log("type of is", typeof arr);
+      // for (const border of arr) {
+      //   console.log(border);
+      // }
+      detailsImage.removeAttribute("src");
+      detailsImage.setAttribute("src", target.dataset.image);
+      console.log(target.dataset.image);
+
+      arr.forEach((border) => {
+        const Span = document.createElement("span");
+        const textNode = document.createTextNode(border);
+        Span.append(textNode);
+        borderCountries.append(Span);
+      });
+      // borderCountries;
+      console.log(JSON.parse(target.dataset.borders));
+    }
+    // target.dataset
+    detailsPage.classList.remove("hide-details");
+    Main.classList.add("hide-main");
+    document.documentElement.scrollTop = 0;
+  },
+  { capture: true }
+);
+
 button.addEventListener("click", function (e) {
   e.preventDefault();
+  detailsImage.removeAttribute("src");
+
   toggleHidden();
 });
 
@@ -95,6 +155,8 @@ async function getSingleCountry(country) {
     console.log(data);
     console.log("status", status);
     if (status === 404) {
+      loadMoreBtn.classList.add("hide-button");
+
       tata.error("API ERROR", "country not found", {
         position: "tr",
         animate: "slide",
@@ -144,13 +206,13 @@ async function displayCountriesCard(data) {
       cardSet[i]?.continents[0]
     }" data-languages=${JSON.stringify(
       cardSet[i]?.languages
-    )} data-capital="${cap}" data-currencies=${JSON.stringify(
+    )} data-capital=${cap} data-currencies='${JSON.stringify(
       cardSet[i]?.currencies
-    )} data-subregion="${
+    )}' data-subregion=${
       cardSet[i]?.subregion
-    }" data-capital="${cap}" data-borders=${JSON.stringify(
+    } data-capital="${cap}" data-borders='${JSON.stringify(
       cardSet[i]?.borders
-    )}>
+    )}'>
               <div class="image">
                 <img
                   src="${imgSrc}"

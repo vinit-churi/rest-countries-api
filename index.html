@@ -33,7 +33,54 @@
         <!-- </div> -->
       </nav>
     </header>
-    <main>
+    <div class="details-page hide-details">
+      <div class="container">
+        <button id="back-button" class="custom-btn btn-16">
+          <i class="fa-solid fa-arrow-left"></i>Back
+        </button>
+        <div class="details-page-content">
+          <div class="main-details">
+            <div class="details-flag-image">
+              <img id="detail-image" src="https://flagcdn.com/w320/dj.png" />
+            </div>
+            <h1 id="country-name">Belgium</h1>
+            <p>
+              <b>Native Name:</b>&nbsp;<span id="details-name">Belgie</span>
+            </p>
+            <p>
+              <b>Population:</b>&nbsp;<span id="details-population"
+                >11319511</span
+              >
+            </p>
+            <p><b>Region:</b>&nbsp;<span id="details-region">Europe</span></p>
+            <p>
+              <b>Sub Region:</b>&nbsp;<span id="details-sub-region"
+                >Western Europe</span
+              >
+            </p>
+            <p>
+              <b>Capital:</b>&nbsp;<span id="details-capital">Brussels</span>
+            </p>
+          </div>
+          <div class="other-details">
+            <p>
+              <b>Top level domain:</b>&nbsp;<span id="details-domain">.be</span>
+            </p>
+            <p>
+              <b>Native Name:</b>&nbsp;<span id="details-currency">Euro</span>
+            </p>
+            <p>
+              <b>Native Name:</b>&nbsp;<span id="details-language"
+                >Dutch, French, German</span
+              >
+            </p>
+          </div>
+          <div class="border-countries"></div>
+        </div>
+      </div>
+    </div>
+
+    <main id="main">
       <section class="searchAndFilters">
         <div class="container">
           <form class="input-country">
@@ -127,7 +174,9 @@
           </div> -->
         </div>
         <div class="load-more">
-          <button class="custom-btn btn-16 hide-button">Load More</button>
+          <button id="load-more" class="custom-btn btn-16 hide-button">
+            Load More
+          </button>
         </div>
       </section>
     </main>
