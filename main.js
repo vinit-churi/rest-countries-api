@@ -37,6 +37,16 @@ countryContainer.addEventListener(
     console.log(target.dataset);
     console.log(JSON.parse(target.dataset.currencies));
     console.log(JSON.parse(target.dataset.languages));
+    detailsImage.removeAttribute("src");
+    detailsImage.setAttribute("src", target.dataset.image);
+    console.log(target.dataset.image);
+    borderCountries.innerHTML = "";
+    /* 
+    while (borderCountries.firstChild) {
+      div.removeChild(div.firstChild);
+    }
+    */
+
     if (target.dataset.borders != "undefined") {
       const para = document.createElement("p");
       para.innerHTML = "<p><b>Border countries:</b></p>";
@@ -46,9 +56,6 @@ countryContainer.addEventListener(
       // for (const border of arr) {
       //   console.log(border);
       // }
-      detailsImage.removeAttribute("src");
-      detailsImage.setAttribute("src", target.dataset.image);
-      console.log(target.dataset.image);
 
       arr.forEach((border) => {
         const Span = document.createElement("span");
@@ -62,7 +69,7 @@ countryContainer.addEventListener(
     // target.dataset
     detailsPage.classList.remove("hide-details");
     Main.classList.add("hide-main");
-    // document.documentElement.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   },
   { capture: true }
 );
@@ -70,7 +77,6 @@ countryContainer.addEventListener(
 button.addEventListener("click", function (e) {
   e.preventDefault();
   detailsImage.removeAttribute("src");
-  // borderCountries.innerHTML = "";
   toggleHidden();
 });
 
