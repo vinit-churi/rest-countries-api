@@ -217,10 +217,10 @@ main {
 
       .image {
         width: 100%;
-        pointer-events: none;
+        // pointer-events: none;
 
         img {
-          pointer-events: none;
+          // pointer-events: none;
           width: 100%;
           min-height: auto;
           height: auto;
@@ -234,7 +234,7 @@ main {
       }
       .card-content {
         padding: 1rem 1rem;
-        pointer-events: none;
+        // pointer-events: none;
         h3 {
           font-weight: 700;
           font-size: 1.2rem;
