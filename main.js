@@ -62,7 +62,7 @@ countryContainer.addEventListener(
     // target.dataset
     detailsPage.classList.remove("hide-details");
     Main.classList.add("hide-main");
-    document.documentElement.scrollTop = 0;
+    // document.documentElement.scrollTop = 0;
   },
   { capture: true }
 );
@@ -70,7 +70,7 @@ countryContainer.addEventListener(
 button.addEventListener("click", function (e) {
   e.preventDefault();
   detailsImage.removeAttribute("src");
-
+  // borderCountries.innerHTML = "";
   toggleHidden();
 });
 
@@ -90,7 +90,7 @@ function setSelectTitle(e) {
   ).innerText;
   selectLabel.innerText = labelElement;
   toggleHidden();
-  console.log(labelElement);
+  // console.log(labelElement);
   getRegionCountries(labelElement); // passing the region to the function
 }
 
@@ -107,7 +107,7 @@ const fetchAllCountries = async () => {
       requestOptions
     ).then((response) => response.json());
 
-    console.log(data);
+    // console.log(data);
     displayCountriesCard(data);
     return data;
   } catch (error) {
@@ -126,7 +126,7 @@ async function getRegionCountries(region) {
       requestOptions
     ).then((response) => response.json());
 
-    console.log(data);
+    // console.log(data);
     displayCountriesCard(data);
     return data;
   } catch (error) {
@@ -152,8 +152,8 @@ async function getSingleCountry(country) {
       status = response.status;
       return response.json();
     });
-    console.log(data);
-    console.log("status", status);
+    // console.log(data);
+    // console.log("status", status);
     if (status === 404) {
       loadMoreBtn.classList.add("hide-button");
 
@@ -179,14 +179,13 @@ async function displayCountriesCard(data) {
   if (data.length > 20) {
     arrLength = 20;
     cardSet = data;
-    clickCount = 0;
     loadMoreBtn.classList.remove("hide-button");
     //
   }
   if (data.length === 1) {
     arrLength = data.length;
-    console.log("array length is", arrLength);
-    console.log("type of data is", typeof data, data);
+    // console.log("array length is", arrLength);
+    // console.log("type of data is", typeof data, data);
     loadMoreBtn.classList.add("hide-button");
   }
   for (let i = 0; i < arrLength; i++) {
@@ -197,12 +196,12 @@ async function displayCountriesCard(data) {
       capital = ["unknown"],
       name: { common: countryName } = "country name error",
     } = data[i];
-    console.log("any missing data", imgSrc, population, continents, capital);
-    console.log(data[i]);
-    console.log(capital);
+    // console.log("any missing data", imgSrc, population, continents, capital);
+    // console.log(data[i]);
+    // console.log(capital);
     let cap = capital[0];
     htmlContent += `
-          <div data-countryId="23121" class="card" data-country-name="${countryName}" data-population="${population}" data-image="${imgSrc}" data-country-name="${countryName}" data-region="${
+          <div class="card" data-country-name="${countryName}" data-population="${population}" data-image="${imgSrc}" data-country-name="${countryName}" data-region="${
       cardSet[i]?.continents[0]
     }" data-languages=${JSON.stringify(
       cardSet[i]?.languages
@@ -231,6 +230,7 @@ async function displayCountriesCard(data) {
             </div>
       `;
   }
+  // ANCHOR ENTER THE COUNTER HERE
   countryContainer.innerHTML = htmlContent;
 }
 
@@ -241,6 +241,7 @@ loadMoreBtn.addEventListener("click", () => {
   // data
   let adjacentHtmlContent = "";
   if (cardSet.length > clickCount * 20 + 20) {
+    console.log(clickCount);
     for (let i = clickCount * 20; i < clickCount * 20 + 20; i++) {
       const {
         flags: { png: imgSrc } = "image error",
@@ -249,12 +250,12 @@ loadMoreBtn.addEventListener("click", () => {
         capital = ["unknown"],
         name: { common: countryName } = "country name error",
       } = cardSet[i];
-      console.log("any missing data", imgSrc, population, continents, capital);
-      console.log(cardSet[i]);
-      console.log(capital);
+      // console.log("any missing data", imgSrc, population, continents, capital);
+      // console.log(cardSet[i]);
+      // console.log(capital);
       let cap = capital[0];
       adjacentHtmlContent += `
-          <div data-countryId="23121" class="card" data-country-name="${countryName}" data-population="${population}" data-image="${imgSrc}" data-country-name="${countryName}" data-region="${
+          <div class="card" data-country-name="${countryName}" data-population="${population}" data-image="${imgSrc}" data-country-name="${countryName}" data-region="${
         cardSet[i]?.continents[0]
       }" data-languages=${JSON.stringify(
         cardSet[i]?.languages
@@ -289,12 +290,12 @@ loadMoreBtn.addEventListener("click", () => {
       loadMoreBtn.classList.add("hide-button");
     }
   } else {
-    console.log(
-      "cardset length",
-      cardSet.length,
-      "currently displayed",
-      clickCount * 20 + 20
-    );
+    // console.log(
+    //   "cardset length",
+    //   cardSet.length,
+    //   "currently displayed",
+    //   clickCount * 20 + 20
+    // );
     let adjacentHtmlContent = "";
 
     if (clickCount * 20 < cardSet.length) {
@@ -306,15 +307,15 @@ loadMoreBtn.addEventListener("click", () => {
           capital = ["unknown"],
           name: { common: countryName } = "country name error",
         } = cardSet[i];
-        console.log(
-          "any missing data",
-          imgSrc,
-          population,
-          continents,
-          capital
-        );
-        console.log(cardSet[i]);
-        console.log(capital);
+        // console.log(
+        //   "any missing data",
+        //   imgSrc,
+        //   population,
+        //   continents,
+        //   capital
+        // );
+        // console.log(cardSet[i]);
+        // console.log(capital);
         let cap = capital[0];
         adjacentHtmlContent += `
           <div data-countryId="23121" class="card">
@@ -333,10 +334,11 @@ loadMoreBtn.addEventListener("click", () => {
               </div>
             </div>
       `;
-        console.log(i);
+        // console.log(i);
       }
       countryContainer.insertAdjacentHTML("beforeend", adjacentHtmlContent);
       loadMoreBtn.classList.add("hide-button");
+      clickCount = 0;
     }
     // loadMoreBtn.classList.add("hide-button");
   }
