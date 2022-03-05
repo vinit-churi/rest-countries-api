@@ -29,9 +29,8 @@ let clickCount = 1;
 themSwitch.addEventListener("click", () => {
   root.style.setProperty("--background-color", "hsl(207, 26%, 17%)");
   root.style.setProperty("--element-color", "hsl(209, 23%, 22%)");
-  root.style.setProperty("--text-color", "hsl(0, 0%, 100%);");
   root.style.setProperty("--input-mode-color", "hsl(209, 23%, 22%)");
-  root.style.setProperty("--font-color", "hsl(0, 0%, 100%);");
+  root.style.setProperty("--font-color", "hsl(0, 0%, 100%)");
   /* 
   --background-color: #{$Light-Mode-Very-Light-Gray};
   --element-color: #{$White};
@@ -122,10 +121,14 @@ countryContainer.addEventListener(
       detailsLanguage.innerHTML = text;
     }
 
-    if (target.dataset.borders != "undefined") {
+    if (
+      target.dataset.borders != "undefined" &&
+      target.dataset.borders != null
+    ) {
       const para = document.createElement("p");
       para.innerHTML = "<p><b>Border countries:</b></p>";
       borderCountries.append(para);
+      console.log(target.dataset.borders);
       const arr = JSON.parse(target.dataset.borders);
       console.log("type of is", typeof arr);
       // for (const border of arr) {
