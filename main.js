@@ -19,27 +19,41 @@ const detailsCapital = document.querySelector("#details-capital");
 const detailsDomain = document.querySelector("#details-domain");
 const detailsCurrency = document.querySelector("#details-currency");
 const detailsLanguage = document.querySelector("#details-language");
-const themSwitch = document.querySelector(".them-switch");
+// const themSwitch = document.querySelector(".them-switch");
+const lightMode = document.querySelector(".dark-mode");
+const darkMode = document.querySelector(".light-mode");
 const root = document.documentElement;
+const commonButton = document.querySelector(".btn-16");
 
 // const card = document.querySelectorAll(".card");
 let cardSet;
 let clickCount = 1;
 
-themSwitch.addEventListener("click", () => {
+lightMode.addEventListener("click", () => {
+  switchLight();
+  lightMode.classList.add("hide-button");
+  darkMode.classList.remove("hide-button");
+});
+darkMode.addEventListener("click", () => {
+  switchDark();
+  lightMode.classList.remove("hide-button");
+  darkMode.classList.add("hide-button");
+});
+
+function switchDark() {
+  commonButton.style.boxShadow = "none";
+  loadMoreBtn.style.boxShadow = "none";
   root.style.setProperty("--background-color", "hsl(207, 26%, 17%)");
   root.style.setProperty("--element-color", "hsl(209, 23%, 22%)");
   root.style.setProperty("--input-mode-color", "hsl(209, 23%, 22%)");
   root.style.setProperty("--font-color", "hsl(0, 0%, 100%)");
-  /* 
-  --background-color: #{$Light-Mode-Very-Light-Gray};
-  --element-color: #{$White};
-  --text-color: #{$Light-Mode-Very-Dark-Blue};
-  --input-mode-color: #{$Light-Mode-Dark-Gray};
-  --font-color: #{$Light-Mode-Very-Dark-Blue};
-  
-  */
-});
+}
+function switchLight() {
+  root.style.setProperty("--background-color", "hsl(0, 0%, 98%)");
+  root.style.setProperty("--element-color", "hsl(0, 0%, 100%)");
+  root.style.setProperty("--input-mode-color", "hsl(209, 23%, 22%)");
+  root.style.setProperty("--font-color", "hsl(200, 15%, 8%)");
+}
 
 BackButton.addEventListener("click", () => {
   detailsPage.classList.add("hide-details");

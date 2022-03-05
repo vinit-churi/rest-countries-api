@@ -28,8 +28,20 @@ header {
       font-size: 0.9rem;
     }
     .them-switch {
-      font-size: 0.7rem;
+      font-size: 0.9rem;
       cursor: pointer;
+      .dark-mode,
+      .light-mode {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+      }
+      .fa-sun {
+        color: #f39c12;
+      }
+      .fa-moon {
+        color: #ffffcc;
+      }
     }
   }
 }
@@ -188,6 +200,7 @@ main {
       box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
       font-weight: 600;
       color: var(--font-color);
+      cursor: pointer;
 
       .image {
         width: 100%;
@@ -288,7 +301,7 @@ button {
 }
 
 .hide-button {
-  display: none;
+  display: none !important;
 }
 
 .details-page {
