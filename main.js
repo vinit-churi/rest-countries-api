@@ -19,10 +19,28 @@ const detailsCapital = document.querySelector("#details-capital");
 const detailsDomain = document.querySelector("#details-domain");
 const detailsCurrency = document.querySelector("#details-currency");
 const detailsLanguage = document.querySelector("#details-language");
+const themSwitch = document.querySelector(".them-switch");
+const root = document.documentElement;
 
 // const card = document.querySelectorAll(".card");
 let cardSet;
 let clickCount = 1;
+
+themSwitch.addEventListener("click", () => {
+  root.style.setProperty("--background-color", "hsl(207, 26%, 17%)");
+  root.style.setProperty("--element-color", "hsl(209, 23%, 22%)");
+  root.style.setProperty("--text-color", "hsl(0, 0%, 100%);");
+  root.style.setProperty("--input-mode-color", "hsl(209, 23%, 22%)");
+  root.style.setProperty("--font-color", "hsl(0, 0%, 100%);");
+  /* 
+  --background-color: #{$Light-Mode-Very-Light-Gray};
+  --element-color: #{$White};
+  --text-color: #{$Light-Mode-Very-Dark-Blue};
+  --input-mode-color: #{$Light-Mode-Dark-Gray};
+  --font-color: #{$Light-Mode-Very-Dark-Blue};
+  
+  */
+});
 
 BackButton.addEventListener("click", () => {
   detailsPage.classList.add("hide-details");
@@ -33,13 +51,13 @@ countryContainer.addEventListener(
   "click",
   (event) => {
     let target = event.target;
-    console.log(target);
-    console.log(target.dataset);
-    console.log(JSON.parse(target.dataset.currencies));
-    console.log(JSON.parse(target.dataset.languages));
+    // console.log(target);
+    // console.log(target.dataset);
+    // console.log(JSON.parse(target.dataset.currencies));
+    // console.log(JSON.parse(target.dataset.languages));
     detailsImage.removeAttribute("src");
     detailsImage.setAttribute("src", target.dataset.image);
-    console.log(target.dataset.image);
+    // console.log(target.dataset.image);
     borderCountries.innerHTML = "";
     /* 
     while (borderCountries.firstChild) {
@@ -154,6 +172,11 @@ function setSelectTitle(e) {
   selectLabel.innerText = labelElement;
   toggleHidden();
   // console.log(labelElement);
+  if (labelElement === "All") {
+    // ANCHOR
+    fetchAllCountries();
+    return;
+  }
   getRegionCountries(labelElement); // passing the region to the function
 }
 
@@ -253,7 +276,7 @@ async function displayCountriesCard(data) {
   }
   for (let i = 0; i < arrLength; i++) {
     const {
-      flags: { png: imgSrc } = "image error",
+      flags: { svg: imgSrc } = "image error",
       population,
       continents = ["unknown"],
       capital = ["unknown"],
@@ -266,9 +289,9 @@ async function displayCountriesCard(data) {
     htmlContent += `
           <div class="card" data-country-name="${countryName}" data-population="${population}" data-image="${imgSrc}" data-country-name="${countryName}" data-region="${
       cardSet[i]?.continents[0]
-    }" data-languages=${JSON.stringify(
+    }" data-languages='${JSON.stringify(
       cardSet[i]?.languages
-    )} data-capital=${cap} data-currencies='${JSON.stringify(
+    )}' data-capital=${cap} data-currencies='${JSON.stringify(
       cardSet[i]?.currencies
     )}' data-subregion=${
       cardSet[i]?.subregion
@@ -307,7 +330,7 @@ loadMoreBtn.addEventListener("click", () => {
     console.log(clickCount);
     for (let i = clickCount * 20; i < clickCount * 20 + 20; i++) {
       const {
-        flags: { png: imgSrc } = "image error",
+        flags: { svg: imgSrc } = "image error",
         population,
         continents = ["unknown"],
         capital = ["unknown"],
@@ -320,9 +343,9 @@ loadMoreBtn.addEventListener("click", () => {
       adjacentHtmlContent += `
           <div class="card" data-country-name="${countryName}" data-population="${population}" data-image="${imgSrc}" data-country-name="${countryName}" data-region="${
         cardSet[i]?.continents[0]
-      }" data-languages=${JSON.stringify(
+      }" data-languages='${JSON.stringify(
         cardSet[i]?.languages
-      )} data-capital=${cap} data-currencies='${JSON.stringify(
+      )}' data-capital=${cap} data-currencies='${JSON.stringify(
         cardSet[i]?.currencies
       )}' data-subregion=${
         cardSet[i]?.subregion
@@ -364,7 +387,7 @@ loadMoreBtn.addEventListener("click", () => {
     if (clickCount * 20 < cardSet.length) {
       for (let i = clickCount * 20; i < cardSet.length; i++) {
         const {
-          flags: { png: imgSrc } = "image error",
+          flags: { svg: imgSrc } = "image error",
           population,
           continents = ["unknown"],
           capital = ["unknown"],
@@ -383,9 +406,9 @@ loadMoreBtn.addEventListener("click", () => {
         adjacentHtmlContent += `
           <div class="card" data-country-name="${countryName}" data-population="${population}" data-image="${imgSrc}" data-country-name="${countryName}" data-region="${
           cardSet[i]?.continents[0]
-        }" data-languages=${JSON.stringify(
+        }" data-languages='${JSON.stringify(
           cardSet[i]?.languages
-        )} data-capital=${cap} data-currencies='${JSON.stringify(
+        )}' data-capital=${cap} data-currencies='${JSON.stringify(
           cardSet[i]?.currencies
         )}' data-subregion=${
           cardSet[i]?.subregion
