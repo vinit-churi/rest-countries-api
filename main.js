@@ -11,7 +11,8 @@ const BackButton = document.querySelector("#back-button");
 const Main = document.querySelector("#main");
 const borderCountries = document.querySelector(".border-countries");
 const detailsImage = document.querySelector("#detail-image");
-const detailsName = document.querySelector("#details-name");
+const detailsName = document.querySelector("#country-name");
+const detailsNativeName = document.querySelector("#details-name");
 const detailsPopulation = document.querySelector("#details-population");
 const detailsRegion = document.querySelector("#details-region");
 const detailsSubRegion = document.querySelector("#details-sub-region");
@@ -49,6 +50,11 @@ function switchDark() {
   root.style.setProperty("--font-color", "hsl(0, 0%, 100%)");
 }
 function switchLight() {
+  /* box-shadow: ; */
+  commonButton.style.boxShadow =
+    "inset 2px 2px 2px 0px rgb(255 255 255 / 50%), 7px 7px 20px 0px rgb(0 0 0 / 10%), 4px 4px 5px 0px rgb(0 0 0 / 10%)";
+  loadMoreBtn.style.boxShadow =
+    "inset 2px 2px 2px 0px rgb(255 255 255 / 50%), 7px 7px 20px 0px rgb(0 0 0 / 10%), 4px 4px 5px 0px rgb(0 0 0 / 10%)";
   root.style.setProperty("--background-color", "hsl(0, 0%, 98%)");
   root.style.setProperty("--element-color", "hsl(0, 0%, 100%)");
   root.style.setProperty("--input-mode-color", "hsl(209, 23%, 22%)");
@@ -87,7 +93,9 @@ countryContainer.addEventListener(
       target.dataset.countryName != "undefined" &&
       target.dataset.countryName != null
     ) {
+      console.log("country name has an issue", target.dataset.countryName);
       detailsName.innerHTML = target.dataset.countryName;
+      detailsNativeName.innerHTML = target.dataset.countryName;
       detailsDomain.innerHTML = `.${target.dataset.countryName.slice(0, 2)}`;
     }
     if (
@@ -97,14 +105,19 @@ countryContainer.addEventListener(
       // detailsCurrency.innerHTML = JSON.parse(
       //   target.dataset.currencies
       // ).toString();
-      const object = JSON.parse(target.dataset.currencies);
-      let text = "";
-      for (const property in object) {
-        text += `${object[property].name}, `;
-        console.log(property);
+      try {
+        const object = JSON.parse(target.dataset.currencies);
+        let text = "";
+        for (const property in object) {
+          text += `${object[property].name}, `;
+          console.log(property);
+        }
+        console.log(text);
+        detailsCurrency.innerHTML = text;
+      } catch (error) {
+        console.log(error);
+        detailsCurrency.innerHTML = "API error";
       }
-      console.log(text);
-      detailsCurrency.innerHTML = text;
     }
     if (
       target.dataset.population != "undefined" &&
@@ -191,6 +204,7 @@ function setSelectTitle(e) {
   // console.log(labelElement);
   if (labelElement === "All") {
     // ANCHOR
+    clickCount = 0;
     fetchAllCountries();
     return;
   }

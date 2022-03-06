@@ -51,15 +51,25 @@ main {
     margin-top: 20px;
 
     .container {
+      @media only screen and (min-width: 800px) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
       .input-country {
         position: relative;
         input[type="text"] {
           width: 100%;
+          max-width: 100%;
+          // max-width: 360px;
+          @media only screen and (min-width: 800px) {
+            width: 400px;
+          }
           border: 0;
           height: 45px;
           background-color: var(--element-color);
           border-radius: 5px;
-          padding: 2px 0 2px 3rem;
+          padding: 2px 0 2px 2.5rem;
           // color: var(--input-mode-color);
           font-weight: 600;
           box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -75,7 +85,7 @@ main {
           display: block;
           position: absolute;
           font-family: "Font Awesome 5 Free";
-          font-weight: 900;
+          font-weight: 600;
           content: "\f002";
           // content: "";
           // background-color: black;
@@ -90,7 +100,7 @@ main {
           display: flex;
           justify-content: center;
           align-items: center;
-          font-size: 1.4rem;
+          font-size: 1rem;
         }
       }
       .selectRegion {
@@ -98,6 +108,10 @@ main {
         margin-top: 45px;
         width: 12.5rem;
         // height: 45px;
+        @media only screen and (min-width: 800px) {
+          margin-top: 0;
+          height: max-content;
+        }
         label {
           display: block;
           // font-weight: 500;
@@ -111,6 +125,9 @@ main {
           position: relative;
           .button {
             margin-left: 0;
+            @media only screen and (min-width: 800px) {
+              margin: 0;
+            }
           }
         }
 
@@ -132,7 +149,7 @@ main {
         }
 
         .arrow {
-          border: solid black;
+          border: solid var(--font-color);
           border-width: 0 2px 2px 0;
           padding: 4px;
           transform: rotate(45deg);
@@ -159,7 +176,7 @@ main {
           display: block;
           padding: 0.4rem 0.5rem;
 
-          background-color: var(--input-mode-color);
+          background-color: var(--element-color);
           color: var(--font-color);
 
           // background-color: red;
@@ -194,6 +211,7 @@ main {
       border-radius: 5px;
       // width: 18rem;
       width: 90%;
+      max-width: 500px;
       margin-left: auto;
       margin-right: auto;
       background-color: var(--element-color);
@@ -315,6 +333,9 @@ button {
   z-index: 20;
 
   .container {
+    @media only screen and (min-width: 800px) {
+      justify-content: center;
+    }
     .details-page-content {
       display: flex;
       flex-direction: column;
@@ -323,8 +344,30 @@ button {
       color: var(--font-color);
       background-color: var(--background-color);
 
+      .contain-all-details {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        @media only screen and (min-width: 800px) {
+          h1 {
+            margin-top: 0;
+          }
+          width: 30%;
+          // align-self: center;
+          // justify-self: center;
+        }
+      }
+      @media only screen and (min-width: 800px) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+
       .details-flag-image {
         width: 100%;
+        @media only screen and (min-width: 800px) {
+          width: 50%;
+        }
         img {
           width: 100%;
         }
@@ -337,9 +380,9 @@ button {
           background-color: var(--element-color);
           margin: 20px 10px 0px 0px;
           font-weight: 600;
-          box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-            7px 7px 20px 0px rgba(0, 0, 0, 0.1),
-            4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+          // box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+          //   7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+          //   4px 4px 5px 0px rgba(0, 0, 0, 0.1);
         }
       }
     }
