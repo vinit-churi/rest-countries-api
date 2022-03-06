@@ -371,6 +371,20 @@ button {
         img {
           width: 100%;
         }
+        /* 
+        
+        width: 100%;
+        img {
+          width: 100%;
+        }
+        @media only screen and (min-width: 800px) {
+          // width: 50%;
+          img {
+            height: 100%;
+            width: auto;
+            // max-width: 60%;
+          }
+        */
       }
 
       .border-countries {
