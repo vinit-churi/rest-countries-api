@@ -28,8 +28,11 @@ Users should be able to:
 - Toggle the color scheme between light and dark mode
 
 ### Screenshot
+<p align="center">
+<img src="https://res.cloudinary.com/vinitchuri/image/upload/v1646745124/web%20projects/frontendmentor/CPT2203081836-1516x747_1_ldmhgf.gif" width="100%"/>
 
-![](./screenshot.jpg)
+<img src="https://res.cloudinary.com/vinitchuri/image/upload/v1646745117/web%20projects/frontendmentor/CPT2203081840-453x745_ys0vhw.gif" height="100%" width="40%" />
+</p>
 
 ### Links
 
